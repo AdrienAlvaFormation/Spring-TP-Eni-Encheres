@@ -1,6 +1,7 @@
 package fr.eni.springtpeniencheres.bo;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ public class Retrait {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+    
     private String rue;
     private String code_postal;
     private String ville;

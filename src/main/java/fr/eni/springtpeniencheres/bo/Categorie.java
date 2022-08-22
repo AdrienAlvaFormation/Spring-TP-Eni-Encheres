@@ -11,8 +11,6 @@ import javax.persistence.Id;
 public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    private int noCategorie;
+    private long noCategorie;
     private String libelle;
 }
