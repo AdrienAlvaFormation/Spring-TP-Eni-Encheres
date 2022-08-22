@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity @Data
 public class Utilisateur {
@@ -14,15 +16,25 @@ public class Utilisateur {
     private long id;
 
     private int noUtilisateur;
+    @NotEmpty
     private String pseudo;
+    @NotEmpty
     private String nom;
+    @NotEmpty
     private String prenom;
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String telephone;
+    @NotEmpty
     private String rue;
+    @NotEmpty
     private String codePostal;
+    @NotEmpty
     private String ville;
+    @NotEmpty
     private String motDePasse;
+    @NotEmpty
     private int credit = 0;
     private Boolean administrateur;
 
