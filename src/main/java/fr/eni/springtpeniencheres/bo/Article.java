@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity @Data
 public class Article {
@@ -26,6 +27,7 @@ public class Article {
     private Categorie categorie;
     @ManyToOne
     private Retrait retrait;
-    private ArrayList<Enchere> encheres;
+    @OneToMany
+    private List<Enchere> encheres;
 
 }
