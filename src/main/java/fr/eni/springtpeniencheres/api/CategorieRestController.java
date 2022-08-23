@@ -19,6 +19,7 @@ public class CategorieRestController {
     public List<Categorie> getListCategories(){
 
         System.out.println("GET api/categories");
+
         return categorieService.listeCategories();
     }
 
@@ -32,8 +33,6 @@ public class CategorieRestController {
     public Categorie postCategorie(@RequestBody Categorie categorie) throws Exception {
 
         System.out.println("POST api/categories");
-
-        System.out.println(categorie);
 
         categorieService.addCategorie(categorie);
 

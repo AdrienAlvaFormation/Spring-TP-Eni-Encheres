@@ -14,7 +14,6 @@ public class CategorieServiceJpaImpl implements CategorieService {
     @Autowired
     private CategorieRepository categorieRepository;
 
-
     @Override
     public void addCategorie(Categorie categorie) throws Exception {
         
