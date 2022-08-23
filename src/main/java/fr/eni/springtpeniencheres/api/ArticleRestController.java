@@ -25,6 +25,9 @@ public class ArticleRestController {
 
     @GetMapping("/{id}")
     public Article getArticleById(@PathVariable long id){
+
+        System.out.println("GET api/articles/{id}");
+
         return articleService.getArticleById(id);
     }
 

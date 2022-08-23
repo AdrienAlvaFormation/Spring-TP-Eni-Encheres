@@ -11,12 +11,13 @@ import javax.validation.constraints.NotNull;
 
 @Entity @Data
 public class Retrait {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     /*
-    NotBlank mieux que NotEmpty car l'utiilisateur ne peut pas mettre des espaces.
+    NotBlank mieux que NotEmpty car l'utilisateur ne peut pas mettre des espaces.
      */
     @NotBlank
     private String rue;

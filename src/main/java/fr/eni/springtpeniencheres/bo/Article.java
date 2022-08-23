@@ -1,6 +1,5 @@
 package fr.eni.springtpeniencheres.bo;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,16 +21,21 @@ public class Article {
     private LocalDate dateDebutEncheres;
 //    @NotEmpty
     private LocalDate dateFinEncheres;
+
     @NotEmpty
     private int miseAPrix;
+
     private int prixVente;
+
     private String etatVente;
-    @ManyToOne
+
+    @ManyToOne @JoinColumn(name="vendeur_id")
     private Utilisateur vendeur;
-    @ManyToOne
-    @JoinColumn(name="no_categorie")
+
+    @ManyToOne @JoinColumn(name="no_categorie")
     private Categorie categorie;
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @ManyToOne(cascade = CascadeType.ALL) @JoinColumn(name="retrait_id")
     private Retrait retrait;
     @OneToMany
     private List<Enchere> encheres;

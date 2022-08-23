@@ -17,6 +17,7 @@ public class LocalDateConverter implements Converter<String, LocalDate> {
      */
     @Override
     public LocalDate convert(String dateAuFormatTexte) {
+        System.out.println("Je tente de convertir une date");
         return LocalDate.parse(dateAuFormatTexte);
     }
 }

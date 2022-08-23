@@ -12,8 +12,6 @@ import javax.validation.constraints.NotEmpty;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
     private int noUtilisateur;
     @NotEmpty
     private String pseudo;
