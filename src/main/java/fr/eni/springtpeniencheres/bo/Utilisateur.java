@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity @Data
 public class Utilisateur {
@@ -59,7 +58,6 @@ public class Utilisateur {
      * Permet l'échange de points lors de la fin d'une enchere, du point de vu du
      * vendeur.
      *
-     * @param noArticle
      */
     public int vend(int noArticle) {
 
