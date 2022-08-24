@@ -11,4 +11,7 @@ public interface UtilisateurService {
     public List<Utilisateur> listeUtilisateur();
 
     public Utilisateur getUtilisateurById(long id);
+
+    public Utilisateur getUtilisateurByPseudo(String pseudo);
+
 }
