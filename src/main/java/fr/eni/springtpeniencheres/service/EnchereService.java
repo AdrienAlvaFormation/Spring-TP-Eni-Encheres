@@ -1,5 +1,6 @@
 package fr.eni.springtpeniencheres.service;
 
+import fr.eni.springtpeniencheres.bo.Article;
 import fr.eni.springtpeniencheres.bo.Enchere;
 import fr.eni.springtpeniencheres.bo.Utilisateur;
 
@@ -13,6 +14,6 @@ public interface EnchereService {
 
     public Enchere getEnchereById(long id);
 
-    public List<Enchere> listeEnchereByNoArticle(long noArticle);
+    public List<Enchere> getEncheresByArticle(Article article);
 
 }

@@ -1,5 +1,6 @@
 package fr.eni.springtpeniencheres.api;
 
+import fr.eni.springtpeniencheres.bo.Article;
 import fr.eni.springtpeniencheres.bo.Enchere;
 import fr.eni.springtpeniencheres.service.EnchereService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,16 @@ public class EnchereRestController {
     @GetMapping("/{id}")
     public Enchere getEnchereById(@PathVariable long id){
         return enchereService.getEnchereById(id);
+    }
+
+    // Todo for testing only - delete on prod
+    @GetMapping("/article/{id}")
+    public List<Enchere> getEnchereArticle(@PathVariable long id){
+
+        Article article = new Article();
+        article.setNoArticle(1);
+
+        return enchereService.getEncheresByArticle(article);
     }
 
     @PostMapping
