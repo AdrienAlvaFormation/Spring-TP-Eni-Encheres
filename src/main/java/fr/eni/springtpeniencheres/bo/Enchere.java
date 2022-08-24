@@ -17,4 +17,6 @@ public class Enchere {
     private int montant_enchere;
     @ManyToOne
     private Utilisateur encherisseur;
+    @ManyToOne @JoinColumn(name="no_article")
+    private Article article;
 }
