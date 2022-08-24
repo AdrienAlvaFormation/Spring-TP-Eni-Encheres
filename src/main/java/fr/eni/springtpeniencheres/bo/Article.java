@@ -1,5 +1,6 @@
 package fr.eni.springtpeniencheres.bo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -35,9 +36,10 @@ public class Article {
     @ManyToOne @JoinColumn(name="no_categorie")
     private Categorie categorie;
 
-    @ManyToOne(cascade = CascadeType.ALL) @JoinColumn(name="retrait_id")
+    @OneToOne(cascade = CascadeType.ALL) @JoinColumn(name="retrait_id")
     private Retrait retrait;
-    @OneToMany
+    @OneToMany @JoinColumn(name="no_article")
+    @JsonManagedReference
     private List<Enchere> encheres;
 
     public Article() {
