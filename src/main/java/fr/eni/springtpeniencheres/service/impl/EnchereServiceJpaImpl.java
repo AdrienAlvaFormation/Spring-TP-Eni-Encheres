@@ -1,6 +1,7 @@
 package fr.eni.springtpeniencheres.service.impl;
 
 import fr.eni.springtpeniencheres.bo.Enchere;
+import fr.eni.springtpeniencheres.repository.ArticleRepository;
 import fr.eni.springtpeniencheres.repository.EnchereRepository;
 import fr.eni.springtpeniencheres.service.EnchereService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +30,11 @@ public class EnchereServiceJpaImpl implements EnchereService {
     public Enchere getEnchereById(long id) {
         return enchereRepository.findById(id).get();
     }
+
+    @Override
+    public List<Enchere> listeEnchereByNoArticle(long noArticle) {
+        return enchereRepository.findByNoArticle(noArticle);
+    }
+
+
 }

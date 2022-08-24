@@ -9,4 +9,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
     public boolean existsByNomArticle(String nomArticle);
 
+
+
 }

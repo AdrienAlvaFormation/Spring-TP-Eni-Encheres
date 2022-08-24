@@ -13,4 +13,6 @@ public interface EnchereService {
 
     public Enchere getEnchereById(long id);
 
+    public List<Enchere> listeEnchereByNoArticle(long noArticle);
+
 }
