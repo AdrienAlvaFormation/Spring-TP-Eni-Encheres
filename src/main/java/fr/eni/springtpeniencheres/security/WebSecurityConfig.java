@@ -22,7 +22,7 @@ public class WebSecurityConfig {
         http.authorizeRequests() // ON AUTORISE
                 .antMatchers(HttpMethod.GET, "/**").permitAll() // les requêtes GET
                 .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() // les requêtes OPTIONS
-//                .antMatchers("/**").permitAll()
+                .antMatchers("/**").permitAll() // allows all routes -> used to desactivate JWT authentication
                 .antMatchers("/api/login").permitAll() // les requêtes pour se loguer
                 // sinon, besoin d'être authentifie (c'est fait au niveau du filtre avec : SecurityContextHolder.getContext().setAuthentication(authenticationToken);)
                 .anyRequest().authenticated()

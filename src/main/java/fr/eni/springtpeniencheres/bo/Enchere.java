@@ -1,5 +1,6 @@
 package fr.eni.springtpeniencheres.bo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,9 +15,10 @@ public class Enchere {
 
     private LocalDateTime dateEnchere;
     @NotEmpty
-    private int montant_enchere;
+    private int montantEnchere;
     @ManyToOne
     private Utilisateur encherisseur;
-    @ManyToOne //@JoinColumn(name="no_article")
+    @ManyToOne
+    @JsonBackReference
     private Article article;
 }

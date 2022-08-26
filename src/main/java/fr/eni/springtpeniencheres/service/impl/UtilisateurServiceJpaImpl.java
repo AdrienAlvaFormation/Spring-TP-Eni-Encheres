@@ -24,12 +24,37 @@ public class UtilisateurServiceJpaImpl implements UtilisateurService {
 
 
     @Override
-    public void addUtilisateur(Utilisateur utilisateur) throws Exception {
+    public boolean addUtilisateur(Utilisateur utilisateur) throws Exception {
 
-        String motDePasseEncode = passwordEncoder.encode(utilisateur.getMotDePasse());
-        utilisateur.setMotDePasse(motDePasseEncode);
+        boolean isOkToAdd;
+
+        if (validateNewUser(utilisateur)) {
+
+            String motDePasseEncode = passwordEncoder.encode(utilisateur.getMotDePasse());
+            utilisateur.setMotDePasse(motDePasseEncode);
+
+            utilisateurRepository.save(utilisateur);
+
+            System.out.println("USER OK TO ADD");
+
+            isOkToAdd = true;
+
+        } else {
+
+            System.out.println("PSEUDO NOT AVAILABLE");
+
+            isOkToAdd = false;
+
+        }
+
+        return isOkToAdd;
+
+    }
+
+    public void updateUtilisateur(Utilisateur utilisateur) throws Exception {
 
         utilisateurRepository.save(utilisateur);
+
     }
 
     @Override
@@ -46,4 +71,24 @@ public class UtilisateurServiceJpaImpl implements UtilisateurService {
     public Utilisateur getUtilisateurByPseudo(String pseudo) {
         return utilisateurRepository.findByPseudo(pseudo);
     }
+
+    // UTILS
+
+    private boolean validateNewUser(Utilisateur utilisateur) {
+
+        boolean isOK;
+
+        if (!utilisateurRepository.existsUtilisateurByPseudo(utilisateur.getPseudo()) &&
+            !utilisateurRepository.existsUtilisateurByEmail(utilisateur.getEmail())) {
+
+            isOK = true;
+
+        } else {
+            isOK = false;
+        }
+
+        return isOK;
+    }// Eo validateNewUser()
+
+
 }

@@ -1,5 +1,6 @@
 package fr.eni.springtpeniencheres.bo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -38,7 +39,7 @@ public class Article {
 
     @OneToOne(cascade = CascadeType.ALL) @JoinColumn(name="retrait_id")
     private Retrait retrait;
-    @OneToMany @JoinColumn(name="no_article")
+    @OneToMany //@JoinColumn(name="id_article")
     @JsonManagedReference
     private List<Enchere> encheres;
 

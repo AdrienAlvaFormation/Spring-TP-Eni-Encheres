@@ -10,4 +10,7 @@ import java.util.List;
 public interface EnchereRepository extends JpaRepository<Enchere, Long> {
 
     public List<Enchere> findByArticle(Article article);
+
+    public Enchere findFirstByArticleNoArticleOrderByMontantEnchereDesc(long id);
+
 }

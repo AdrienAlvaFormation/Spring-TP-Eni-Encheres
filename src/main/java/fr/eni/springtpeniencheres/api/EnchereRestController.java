@@ -33,7 +33,7 @@ public class EnchereRestController {
     public List<Enchere> getEnchereArticle(@PathVariable long id){
 
         Article article = new Article();
-        article.setNoArticle(1);
+        article.setNoArticle(id);
 
         return enchereService.getEncheresByArticle(article);
     }
@@ -48,5 +48,15 @@ public class EnchereRestController {
         enchereService.addEnchere(enchere);
 
         return enchere;
+    }
+
+    @GetMapping("/max-enchere/{id}")
+    public Enchere getMaxEnchere(@PathVariable long id){
+
+        Article article = new Article();
+        article.setNoArticle(id);
+
+        return enchereService.getLastEnchere(id);
+
     }
 }

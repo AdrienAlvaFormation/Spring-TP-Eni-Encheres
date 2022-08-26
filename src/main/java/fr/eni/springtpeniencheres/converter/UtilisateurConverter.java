@@ -14,7 +14,7 @@ public class UtilisateurConverter implements Converter<String, Utilisateur> {
 
     @Override
     public Utilisateur convert(String idAuFormatTexte) {
-        long id = Integer.parseInt(idAuFormatTexte);
+        int id = Integer.parseInt(idAuFormatTexte);
         return utilisateurService.getUtilisateurById(id);
     }
 
